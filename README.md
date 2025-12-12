@@ -46,7 +46,7 @@ cd honeypot
 
 ```bash
 python3 -m venv .venv
-source .venv/bin/activate
+source .venv/bin/activate   # Windows: .venv\Scripts\activate
 ```
 
 ### 3. Install dependencies
@@ -57,9 +57,24 @@ pip install -r requirements.txt
 
 ---
 
+## Inviting the Bot to Your Server
+
+1. Go to the [Discord Developer Portal](https://discord.com/developers/applications) → Your Bot → OAuth2 → URL Generator.  
+2. Select the **bot** scope.  
+3. Under **Bot Permissions**, select:  
+   - Manage Messages  
+   - Kick Members / Ban Members (depending on `BOT_ACTION`)  
+   - Read Message History  
+   - Send Messages  
+   - Embed Links  
+4. Copy the generated URL and open it in your browser.  
+5. Choose the server you want to add the bot to and authorize it.
+
+---
+
 ## Configuration
 
-Create the `.env` file in the project root.
+Create a `.env` file in the project root.
 
 Example:
 
@@ -89,13 +104,19 @@ PURGE_TIMEFRAME=60    # seconds
 
 ## Running the Bot
 
-All you have to do to get started is run this command: 
+### Initializing
+
+Start the bot with:
 
 ```bash
 python src/bot.py
 ```
 
-Spawning this process can be automated through the likes of systemd and cron.
+Spawning this process can be automated through systemd, cron, or other process managers.
+
+### Verifying
+
+Check whether the bot is online using the `$ping` command.
 
 ---
 
