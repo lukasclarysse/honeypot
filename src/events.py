@@ -30,7 +30,12 @@ def register_events(bot):
 
     @bot.event
     async def on_message(message):
-        if message.author.bot or message.channel.id != HONEYPOT_CHANNEL:
+        if message.author.bot:
+            return
+
+        await bot.process_commands(message)
+
+        if message.channel.id != HONEYPOT_CHANNEL:
             return
 
         log.info(f"HONEYPOT TRIGGER: {message.author} in #{message.channel.name}")
@@ -81,5 +86,3 @@ def register_events(bot):
             log.info(f"{BOT_ACTION.capitalize()} {member}")
         except Exception as e:
             log.error(f"Failed to apply moderation action: {e}")
-
-        await bot.process_commands(message)
