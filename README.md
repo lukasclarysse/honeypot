@@ -38,8 +38,8 @@ Make sure you enable the privileged intents in the Discord Developer Portal.
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourname/honeypot-bot.git
-cd honeypot-bot
+git clone https://github.com/lukasclarysse/honeypot.git
+cd honeypot
 ```
 
 ### 2. Create a virtual environment
